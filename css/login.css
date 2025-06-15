@@ -1,0 +1,31 @@
+  .auth-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 1rem;
+  }
+
+  .auth-form {
+      background-color: var(--secondary);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .auth-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+  }
+
+  .back-link {
+      text-align: center;
+      margin-top: 1rem;
+  }
+
+  .back-link a {
+      color: var(--highlight);
+      text-decoration: none;
+  }

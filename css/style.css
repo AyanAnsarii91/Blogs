@@ -1,0 +1,688 @@
+/* Import Google Font: Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --accent: #00bcd4;       /* Aqua/Cyan accent */
+  --highlight: #00e6ff;    /* Bright cyan highlight */
+  --text: #f1f1f1;
+  --text-secondary: #c9c9c9;
+  --space-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #00bcd4 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Thumb (scroll handle) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00f5a0, #00d9f5);
+  border-radius: 10px;
+  border: 2px solid #121212;
+}
+
+/* On hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00f5a0, #00ffcc);
+}
+
+/* Corner between horizontal and vertical scrollbars */
+::-webkit-scrollbar-corner {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: 0 0 10px #00f5a088;
+}
+
+
+/* Remove underline for all links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text);
+  line-height: 1.6;
+  transition: opacity 0.5s ease;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+/* Header & Navigation */
+header {
+  background: var(--space-gradient);
+  padding: 1rem;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Hamburger on left */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.8rem;
+  cursor: pointer;
+  order: 1;
+}
+
+/* Logo (next to hamburger) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  order: 2;
+  border-radius: 50px;
+}
+
+.logo img{
+  border-radius: 50px;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Search Bar */
+
+/*
+.search-container {
+  position: relative;
+  margin: 0 1rem;
+  flex-grow: 1;
+  max-width: 300px;
+  order: 3;
+}
+.search-container input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-color: var(--secondary);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.search-container input:focus {
+  outline: none;
+  border-color: var(--highlight);
+  box-shadow: 0 0 10px var(--highlight);
+}
+.search-container .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--highlight);
+  font-size: 1.2rem;
+}
+.search-container .clear-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--highlight);
+  font-size: 1.2rem;
+  display: none;
+}
+*/
+/* Search Bar */
+/* Search Bar */
+.search-container {
+  position: relative;
+  margin: 0 1rem;
+  flex-grow: 1;
+  max-width: 300px;
+  order: 3;
+}
+
+.search-container input {
+  width: 100%;
+  padding:9px;
+/*  padding: 0.5rem 2.5rem 0.5rem 0.8rem; /* Adjust padding-right to make space for the icon */
+ padding-left: 2.5rem; 
+  border: 2px solid transparent;
+  border-radius: 24px;
+  background-color: var(--secondary);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: var(--highlight);
+  box-shadow: 0 0 10px var(--highlight);
+}
+
+/* Search icon positioning */
+.search-container .search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--highlight);
+  font-size: 1.2rem;
+  
+}
+
+/* Clear icon positioning */
+.search-container .clear-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--highlight);
+  font-size: 1.2rem;
+  display: none;  /* Show when input has text */
+}
+
+
+
+/* Navigation Links */
+nav {
+  order: 4;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+nav a {
+  font-weight: 500;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+nav a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--highlight);
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: var(--highlight);
+}
+nav a:hover:after {
+  width: 100%;
+}
+
+/* Auth Buttons (placed on top right) */
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+  order: 5;
+}
+.auth-btn {
+  background-color: var(--highlight);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.auth-btn:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  nav {
+    width: 100%;
+    order: 6;
+    margin-top: 1rem;
+    display: none;
+    display:flex;
+    gap:10px;
+  }
+  nav.active {
+    display: block;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('https://source.unsplash.com/1200x800/?technology,space,aqua') center/cover no-repeat;
+  background-attachment: fixed;
+  margin-bottom: 3rem;
+}
+.hero:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 30, 0.6);
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+.hero h1 {
+  font-size: 3.8rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+}
+.btn:hover {
+  background-color: var(--highlight);
+  transform: translateY(-3px);
+}
+
+/* Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--highlight);
+}
+
+/* Featured Articles */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+.article-card {
+  background-color: var(--secondary);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+.article-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.article-img:hover {
+  transform: scale(1.05);
+}
+.article-content {
+  padding: 1.5rem;
+}
+.article-category {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background-color: var(--accent);
+  color: var(--text);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+.article-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.article-title a {
+  transition: color 0.3s ease;
+}
+.article-title a:hover {
+  color: var(--highlight);
+}
+.article-excerpt {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.article-meta img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+.article-meta img:hover {
+  transform: scale(1.1);
+}
+/* Newsletter Section */
+.newsletter {
+  background: linear-gradient(135deg, #00bcd4, #00e5ff); /* Aqua + Cyan */
+  padding: 50px 0;
+  text-align: center;
+  filter: brightness(85%); /* Dim the background */
+}
+
+.newsletter-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.newsletter p {
+  font-size: 1.2rem;
+  color: #ffffff; /* White for high contrast */
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column; /* Stack input and button */
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter-input {
+  width: 80%; /* Make input field wider */
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid var(--text-light);
+  border-radius: 30px;
+  margin-bottom: 15px; /* Space between input and subscribe button */
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.newsletter-input:focus {
+  border-color: var(--highlight);
+  box-shadow: 0 0 10px var(--highlight);
+}
+
+.newsletter-btn {
+  padding: 12px 25px; /* Wider button */
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 80%; /* Match the input width */
+}
+
+.newsletter-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary);
+  padding: 3rem 0;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.footer-column h3:after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--highlight);
+}
+.footer-links {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+.footer-links a {
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: var(--highlight);
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.social-link:hover {
+  background-color: var(--highlight);
+  transform: scale(1.1);
+}
+.social-link i {
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+/* Forms (Login, Sign Up, etc.) */
+form input,
+form button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+form input:focus {
+  outline: none;
+  border-color: var(--highlight);
+  box-shadow: 0 0 10px var(--highlight);
+}
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent);
+  border: none;
+  color: var(--text);
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+form button:hover {
+  background-color: var(--highlight);
+  transform: translateY(-2px);
+}
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  nav {
+    width: 100%;
+    order: 6;
+    margin-top: 1rem;
+    display: none;
+  }
+  nav.active {
+    display: block;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
+/* Media query for mobile devices (600px and below) */
+@media screen and (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2.5rem; /* Maintaining your preferred size */
+    line-height: 1.1; /* Slightly tighter line height for mobile */
+    margin-bottom: 0.75rem; /* Reduced bottom margin on mobile */
+    position: relative; /* For better positioning control */
+    z-index: 1; /* Ensure it stays behind the search bar */
+    transition: all 0.3s ease; /* Smooth transitions when search is active */
+  }
+  
+  /* When search bar is active/focused */
+  .search-bar:focus ~ .hero-content h1,
+  .search-bar:active ~ .hero-content h1,
+  .search-active .hero-content h1 {
+    transform: translateY(-10px); /* Move slightly upward when search is active */
+    font-size: 2.2rem; /* Slightly reduce size only when search is active */
+  }
+  
+  /* Additional padding for the container to prevent overflow */
+  .hero-container {
+    padding-top: 1rem;
+    overflow: hidden; /* Prevent any overflow */
+    min-height: 120px; /* Ensure minimum height to contain elements */
+  }
+}
+
+/* For extremely small screens */
+@media screen and (max-width: 375px) {
+  .hero-content h1 {
+    font-size: 2.2rem; /* Slightly smaller on very small devices */
+  }
+  
+  /* When search bar is active on very small screens */
+  .search-bar:focus ~ .hero-content h1,
+  .search-bar:active ~ .hero-content h1,
+  .search-active .hero-content h1 {
+    transform: translateY(-8px);
+    font-size: 2rem;
+  }
+}
+
+
+
